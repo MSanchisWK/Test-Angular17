@@ -1,1 +1,63 @@
-<p>songs works!</p>
+<div class="container">
+    <header>
+        <nav>
+            <ul>
+                <li class="selected"><a href="#">Songs</a></li>
+                <li><a href="#">Artists</a></li>
+                <li><a href="#">Companies</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <div class="song-list">
+            @for(song of songs; track song){
+                <div class="song-card">
+                    <h3>{{song.title}} ({{getArtistNameById(song.artist)}})</h3>
+                    <img [src]="song.poster"/>
+                    <div class="tag-list">
+                        @for(genre of song.genre; track genre){
+                            <span class="tag">{{genre}}</span>
+                        }
+                    </div>
+                </div>
+            }
+        </div>
+        
+        <button class="add-song-btn">Add Song</button>
+        
+        <div class="create-form">
+            <button class="back-btn">Back</button>
+            <form>
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title">
+                
+                <label for="artist">Artist:</label>
+                <input type="text" id="artist" name="artist">
+
+                <label for="artist">Genres:</label>
+                <select id="genres" name="genres">
+                @for(genre of genres; track genre){
+                    <option [value]="genre">{{genre}}</option>
+                }
+                </select>
+                <div class="tag-list">
+                @for(genre of song.genre; track genre){
+                    <span class="tag">{{genre}}</span>
+                }
+                </div> 
+                
+                <label for="duration">Country:</label>
+                <input type="text" id="duration" name="duration">
+
+                <label for="duration">Year:</label>
+                <input type="date" id="duration" name="duration">
+
+                <label for="duration">Points:</label>
+                <input type="text" id="duration" name="duration">
+                
+                <button>Add</button>
+            </form>
+        </div>
+    </main>
+</div>
