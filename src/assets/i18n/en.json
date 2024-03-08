@@ -1,0 +1,24 @@
+{
+    "header": {
+      "songs": "Songs",
+      "artists": "Artists",
+      "companies": "Companies"
+    },
+    "create-form": {
+      "edit-song": "Edit song",
+      "new-song": "New song",
+      "back": "Back",
+      "title": "Title:",
+      "artist": "Artist:",
+      "genres": "Genres:",
+      "country": "Country:",
+      "year": "Year:",
+      "points": "Points:"
+    },
+    "buttons": {
+      "add": "Add song",
+      "save": "Save song",
+      "delete": "Delete song"
+    }
+  }
+  

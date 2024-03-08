@@ -15,22 +15,23 @@ export class AppService {
 
   constructor(private http: HttpClient) { }
 
-  private fetchData(endpoint: string): Observable<any> {
-    return this.http.get<any[]>(`${this.baseUrl}/${endpoint}`).pipe(
+  getSongs(): Observable<Song[]> {
+    return this.http.get<Song[]>(`${this.baseUrl}/songs`).pipe(
       map(data => data.filter(item => item !== null)) 
     );
   }
 
-  public getSongs(): Observable<Song[]> {
-    return this.fetchData('songs') as Observable<Song[]>;
+  getArtists(): Observable<Artist[]> {
+    return this.http.get<Artist[]>(`${this.baseUrl}/artists`).pipe(
+      map(data => data.filter(item => item !== null)) 
+    );
   }
 
-  public getArtists(): Observable<Artist[]> {
-    return this.fetchData('artists') as Observable<Artist[]>;
+  getCompanies(): Observable<Company[]> {
+    return this.http.get<Company[]>(`${this.baseUrl}/companies`).pipe(
+      map(data => data.filter(item => item !== null)) 
+    );
   }
 
-  public getCompanies(): Observable<Company[]> {
-    return this.fetchData('companies') as Observable<Company[]>;
-  }
 }
 
