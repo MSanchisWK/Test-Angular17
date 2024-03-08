@@ -1,83 +1,74 @@
-<div class="container">
-    <header>
-        <nav>
-            <ul>
-                <li class="selected"><a href="#">{{ 'header.songs'| translate }}</a></li>
-                <li><a href="#">{{ 'header.artists'  }}</a></li>
-                <li><a href="#">{{ 'header.companies'  }}</a></li>
-            </ul>
-        </nav>
-    </header>
-    
-    <main>
-        @if(state === 'list') {
-            <div class="song-list">
-                @for(song of songs; track song){
-                    <div class="song-card" (click)="setSelectedSong(song.id)">
-                        <h3>{{ song.title }} ({{ getArtistNameById(song.artist) }})</h3>
-                        <img [src]="song.poster"/>
-                        <div class="tag-list">
-                            @for(genre of song.genre; track genre){
-                                <span class="tag">{{ genre }}</span>
-                            }
-                        </div>
-                    </div>
+<app-header currentPage="songs"></app-header>
+<main class="container">
+    @if(state === 'list') {
+    <div class="song-list">
+        @for(song of songs; track song){
+        <div class="song-card" (click)="setSelectedSong(song.id)">
+            <h3>{{ song.title }} ({{ getArtistNameById(song.artist) }})</h3>
+            <img [src]="song.poster" />
+            <div class="tag-list">
+                @for(genre of song.genre; track genre){
+                <span class="tag">{{ genre }}</span>
                 }
             </div>
-            <button (click)="action('new')" class="floating-btn">
-                <img src="assets/icons/add.png" width="30" alt="{{ 'buttons.add'  }}">
-            </button>
+        </div>
         }
-        @else {
-            <div class="create-form">
-                <div class="top-label">
-                    <button (click)="action('list')">
-                        <img src="assets/icons/arrow.png" width="20" alt="{{ 'create-form.back'  }}">
-                    </button>
-                    <h3>{{ (state === 'view' ? 'create-form.edit-song' : 'create-form.new-song')  }}</h3>
-                </div>
-                <form [formGroup]="form">
-                    <label for="title">{{ 'create-form.title'  }}</label>
-                    <input type="text" id="title" name="title" formControlName="title">
-                    
-                    <label for="artist">{{ 'create-form.artist'  }}</label>
-                    <input type="text" id="artist" name="artist" formControlName="artist">
+    </div>
+    <button (click)="action('new')" class="floating-btn">
+        <img src="assets/icons/add.png" width="30" alt="{{ 'buttons.add' | translate }}" />
+    </button>
+    } @else {
+    <div class="create-form">
+        <div class="top-label">
+            <button (click)="action('list')">
+                <img src="assets/icons/arrow.png" width="20" alt="{{ 'create-form.back' | translate }}" />
+            </button>
+            <h3>
+                {{
+                (state === "view" ? "create-form.edit-song" : "create-form.new-song")
+                | translate
+                }}
+            </h3>
+        </div>
+        <form [formGroup]="form">
+            <label for="title">{{ "create-form.title" | translate }}</label>
+            <input type="text" id="title" name="title" formControlName="title" />
 
-                    <label for="artist">{{ 'create-form.genres'  }}</label>
-                    <select id="genres" name="genres" (change)="addGenre($event)">
-                    @for(genre of genres; track genre){
-                        <option [value]="genre">{{ genre }}</option>
-                    }
-                    </select>
-                    <div class="tag-list">
-                    @for(genre of form.value.genre; track genre){
-                        <span class="tag" (click)="removeGenre(genre)">{{ genre }}</span>
-                    }
-                    </div> 
+            <label for="artist">{{ "create-form.artist" | translate }}</label>
+            <input type="text" id="artist" name="artist" formControlName="artist" />
 
-                    <label for="year">{{ 'create-form.year'  }}</label>
-                    <input type="number" max="2100" min="1900" id="year" name="year" formControlName="year">
-
-                    <label for="rating">{{ 'create-form.points'  }}</label>
-                    <input type="number" id="rating" name="rating" formControlName="rating">
-
-                    <label for="duration">{{ 'create-form.duration'  }}</label>
-                    <input type="number" id="duration" name="duration" formControlName="duration">
-                </form>
+            <label for="artist">{{ "create-form.genres" | translate }}</label>
+            <select id="genres" name="genres" (change)="addGenre($event)">
+                @for(genre of genres; track genre){
+                <option [value]="genre">{{ genre }}</option>
+                }
+            </select>
+            <div class="tag-list">
+                @for(genre of form.value.genre; track genre){
+                <span class="tag" (click)="removeGenre(genre)">{{ genre }}</span>
+                }
             </div>
-            @if(state === 'view') { 
-                <button (click)="saveSong()" class="floating-btn">
-                    <img src="assets/icons/save.png" width="30" alt="{{ 'buttons.save'  }}">
-                </button>
-                <button (click)="deleteSong()" class="floating-btn-del">
-                    <img src="assets/icons/delete.png" width="30" alt="{{ 'buttons.delete'  }}">
-                </button>
-            }
-            @else {
-                <button class="floating-btn" (click)="saveSong()">
-                    <img src="assets/icons/save.png" width="30" alt="{{ 'buttons.save'  }}">
-                </button>
-            }
-        }      
-    </main>
-</div>
+
+            <label for="year">{{ "create-form.year" | translate }}</label>
+            <input type="number" max="2100" min="1900" id="year" name="year" formControlName="year" />
+
+            <label for="rating">{{ "create-form.points" | translate }}</label>
+            <input type="number" id="rating" name="rating" formControlName="rating" />
+
+            <label for="duration">{{ "create-form.duration" | translate }}</label>
+            <input type="number" id="duration" name="duration" formControlName="duration" />
+        </form>
+    </div>
+    @if(state === 'view') {
+    <button (click)="saveSong()" class="floating-btn">
+        <img src="assets/icons/save.png" width="30" alt="{{ 'buttons.save' | translate }}" />
+    </button>
+    <button (click)="deleteSong()" class="floating-btn-del">
+        <img src="assets/icons/delete.png" width="30" alt="{{ 'buttons.delete' | translate }}" />
+    </button>
+    } @else {
+    <button class="floating-btn" (click)="saveSong()">
+        <img src="assets/icons/save.png" width="30" alt="{{ 'buttons.save' | translate }}" />
+    </button>
+    } }
+</main>

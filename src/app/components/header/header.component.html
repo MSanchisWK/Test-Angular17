@@ -1,1 +1,9 @@
-<p>header works!</p>
+<header>
+    <nav>
+        <ul>
+            <li [ngClass]="{ 'selected': currentPage === 'songs' }"><a href="#">{{ 'header.songs'| translate }}</a></li>
+            <li [ngClass]="{ 'selected': currentPage === 'artists' }"><a href="#">{{ 'header.artists'| translate }}</a></li>
+            <li [ngClass]="{ 'selected': currentPage === 'companies' }"><a href="#">{{ 'header.companies'| translate }}</a></li>
+        </ul>
+    </nav>
+</header>

@@ -5,52 +5,6 @@
     justify-content: self-start;
   }
   
-  header {
-    padding: 10px;
-    width: 100%;
-    background-color: #252525;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    z-index: 1000;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-  }
-  nav{
-    width: 300px;
-    margin-top: 5px;
-    margin-bottom: 10px;
-  }
-  
-  nav ul {
-    background-color: #252525;
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  li {
-    display: flex;
-    flex-direction: row;
-  }
-  
-  nav ul li a {
-    display: block;
-    color: white;
-    padding: 10px;
-    text-decoration: none;
-    background-color: #252525;
-  }
-  
-  nav ul li a:hover {
-    background-color: #555;
-  }
-  
   .song-list {
     margin-top: 100px;
     display: flex;
@@ -125,15 +79,15 @@
     padding: 10px;
     margin-top: 100px;
     color: white;
+    width: 300px;
   }
   
   .create-form .top-label {
     display: flex;
     flex-direction: row;
     gap: 20px;
-    padding: 10px;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
   }
 
   .create-form button{
@@ -156,10 +110,5 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box;
+    color: white;
   }
-
-  .selected{
-    font-weight: bold;
-    border-bottom: 2px solid white;
-  }
-  

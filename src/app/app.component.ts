@@ -17,6 +17,5 @@ export class AppComponent {
         this.translate.addLangs(['es', 'en']);
         this.translate.setDefaultLang('es');
         translate.use('es'); 
-        this.router.navigate(['/songs']);
     }
 }

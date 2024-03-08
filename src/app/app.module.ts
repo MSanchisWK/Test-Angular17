@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router'; 
 import { AppComponent } from './app.component';
-import { AppRoutes } from './app.routes'; 
+import { AppRoutingModule } from './app-routing.module';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -18,7 +17,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(AppRoutes), 
+    AppRoutingModule,
     HttpClientModule,
     TranslateModule.forRoot({
       loader: {

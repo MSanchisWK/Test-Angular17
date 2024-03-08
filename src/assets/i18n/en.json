@@ -13,7 +13,8 @@
       "genres": "Genres:",
       "country": "Country:",
       "year": "Year:",
-      "points": "Points:"
+      "points": "Points:",
+      "duration": "Duration:"
     },
     "buttons": {
       "add": "Add song",
