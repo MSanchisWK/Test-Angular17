@@ -14,7 +14,9 @@
       "country": "País:",
       "year": "Año:",
       "points": "Puntos:",
-      "duration": "Duración:"
+      "duration": "Duración:",
+      "maxFileSize": "Máximo peso de imagen: 1GB",
+      "poster": "Poster"
     },
     "buttons": {
       "add": "Añadir canción",

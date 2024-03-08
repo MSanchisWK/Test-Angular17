@@ -14,7 +14,9 @@
       "country": "Country:",
       "year": "Year:",
       "points": "Points:",
-      "duration": "Duration:"
+      "duration": "Duration:",
+      "maxFileSize": "Max file size: 1GB",
+      "poster": "Poster"
     },
     "buttons": {
       "add": "Add song",

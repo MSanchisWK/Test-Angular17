@@ -4,7 +4,7 @@ import { Artist } from 'src/app/interfaces/Artist';
 import { Song } from 'src/app/interfaces/Song';
 import { lastValueFrom } from 'rxjs';
 import { SpinnerService } from '../../services/spinner.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-songs',
@@ -33,7 +33,7 @@ export class SongsComponent {
       year: [''],
       rating: [''],
       duration: [''],
-      poster: ['']
+      poster: ['', [Validators.required]]
     });
   }
 
@@ -129,6 +129,29 @@ export class SongsComponent {
     let currentGenres = this.form.get('genre')?.value || [];
     currentGenres = currentGenres.filter((el: string) => el !== genre);
     this.form.patchValue({ genre: currentGenres });
+  }
+
+  async convertFileToBase64(file: File): Promise<string> {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => {
+        const base64String = reader.result as string;
+        resolve(base64String);
+      };
+      reader.onerror = error => reject(error);
+      reader.readAsDataURL(file);
+    });
+  }
+
+  async handlePosterChange(event: any) {
+    const file = event.target.files[0];
+    const imagenBase64 = await this.convertFileToBase64(file);
+    this.form.patchValue({ poster: imagenBase64});
+    if (file.size > 1000000000) { 
+      this.form.get('poster')?.setErrors({ maxFileSize: true });
+    } else {
+      this.form.get('poster')?.setErrors(null);
+    }
   }
 
 }

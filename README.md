@@ -1,27 +1,42 @@
-# Angular17Test
+# Angular 17 Test
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.5.
+This project is a skill test for a job interview, focusing on Angular 17.
 
-## Development server
+## Prerequisites
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Before getting started, make sure you have the following installed:
 
-## Code scaffolding
+- Node.js (version X.X.X)
+- Angular CLI (version X.X.X)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Getting Started
 
-## Build
+1. Clone this repository to your local machine.
+2. Navigate to the project directory.
+3. Install the project dependencies by running the following command:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+    ```bash
+    npm install
+    ```
 
-## Running unit tests
+4. Start the development server by running the following command:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+    ```bash
+    ng serve
+    ```
 
-## Running end-to-end tests
+5. Open your browser and visit `http://localhost:4200` to see the application.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Features
 
-## Further help
+- Feature 1: [Description of feature 1]
+- Feature 2: [Description of feature 2]
+- ...
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Contributing
+
+Contributions are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).

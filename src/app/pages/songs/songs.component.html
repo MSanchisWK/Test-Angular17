@@ -57,6 +57,13 @@
 
             <label for="duration">{{ "create-form.duration" | translate }}</label>
             <input type="number" id="duration" name="duration" formControlName="duration" />
+
+            <label for="poster">{{ "create-form.poster" | translate }}</label>
+            <input type="file" id="poster" name="poster" accept="image/*" (change)="handlePosterChange($event)" />
+            @if(form.get('poster')?.hasError('maxFileSize')) {
+                <div>{{ 'create-form.maxFileSize' | translate}}</div>
+            }
+            
         </form>
     </div>
     @if(state === 'view') {
